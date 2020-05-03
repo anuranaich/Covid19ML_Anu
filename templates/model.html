@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Datascience &mdash; ML Demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+ 
+    <link href='https://fonts.googleapis.com/css?family=Nunito:300,400,700' rel='stylesheet' type='text/css'>  
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/icomoon/style.css') }}">  
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.css') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.min.css') }}">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.fancybox.min.css') }}"> 
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/flaticon/font/flaticon.css') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/aos.css') }}">  
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">  
+    
+    
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  
+     <div class="site-section bg-image2 overlay" id="contact-section" style="background-image: url({{ url_for('static', filename='images/covid.jpg') }});">
+      <div class="container">
+        <!--<div class="row mb-5">-->
+        <div>
+          <div class="col-12 text-center">
+            <h2 class="section-title mb-3 text-white">Covid-19 Prediction</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-7 mb-5">
+
+            
+
+            <form action="{{ url_for('predict')}}"method="post" class="p-5 bg-white">
+              
+              <h1 class="h4 text-black mb-5">Details (e.g. Age 30, Diabetes YES, Asthma NO, Heart Problem NO)</h1> 
+              <h1 class="h5 text-black mb-5">Note: Only, if the person is COVID-19 positive</h1> 
+
+              <div class="row form-group">
+              
+                <div class="col-md-2">
+                  <label class="text-black" for="Age">Age</label> 
+                    <input type="number" name="tage" class="form-control rounded-0" required="required">  
+
+                </div> 
+
+                <div class="col-md-3">
+                  <label class="text-black" for="Dia">Diabetes</label> 
+                    <!--<input type="text" name="tdiabetes" placeholder="YES" class="form-control rounded-0" required="required"> -->
+                    <select name="tdiabetes">
+                      <option value="1">YES</option>
+                      <option value="0">NO</option> 
+                    </select>    
+                </div>
+                <div class="col-md-3">
+                  <label class="text-black" for="Ast">Asthma</label> 
+                    <!--<input type="text" name="tasthma" placeholder="YES" class="form-control rounded-0" required="required">-->
+                    <select name="tasthma">
+                      <option value="1">YES</option>
+                      <option value="0">NO</option> 
+                    </select>    
+                </div>     
+                <div class="col-md-3">
+                  <label class="text-black" for="Hrt">Heart Problem</label> 
+                  <!--<input type="text" name="theart" placeholder="YES" class="form-control rounded-0" required="required">-->
+                    <select name="theart">
+                      <option value="1">YES</option>
+                      <option value="0">NO</option> 
+                    </select> 
+                </div>   
+ 
+              </div>
+
+              <!--<div class="row form-group">
+                
+                <div class="col-md-12">
+                  <label class="text-black" for="email">Result in %</label> 
+                  <input type="email" id="email" class="form-control rounded-0">
+                </div>
+              </div> 
+              -->
+
+              <div class="row form-group">
+                <div class="col-md-12"> 
+                  <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+                </div>
+              </div>
+ 
+               <br>
+               <br>              
+              
+              <h1>  {{ prediction_text }} </h1>
+
+  
+            </form>
+          </div>
+        
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="footer py-5 text-center">
+      <div class="container">
+        <div> <!-- class="row mb-50"-->
+          <div class="col-12">
+            <p class="mb-0">
+              <a href="#" class="p-3"><span class="icon-facebook"></span></a>
+              <a href="#" class="p-3"><span class="icon-twitter"></span></a>
+              <a href="#" class="p-3"><span class="icon-instagram"></span></a>
+              <a href="#" class="p-3"><span class="icon-linkedin"></span></a>
+              <a href="#" class="p-3"><span class="icon-pinterest"></span></a>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <p class="mb-0">
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Designed and Developed by Anuran Aich ;<script>document.write(new Date().getFullYear()): </script> <i class="icon-heart text-danger" aria-hidden="true"></i> 
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- .site-wrap -->
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+
+  
+  <script src="js/main.js"></script>
+  
+  </body>
+</html>
